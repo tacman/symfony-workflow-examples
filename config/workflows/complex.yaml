@@ -3,9 +3,7 @@ framework:
         beerglass_complex:
             type: workflow
             marking_store:
-                type: multiple_state
-                arguments:
-                    - complexState
+                property: complextState
             supports:
                 - App\Document\BeerGlass
             places:

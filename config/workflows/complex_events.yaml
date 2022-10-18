@@ -3,9 +3,7 @@ framework:
         complex_events:
             type: workflow
             marking_store:
-                type: multiple_state
-                arguments:
-                    - complexState
+                property: complextState
             supports:
                 - App\Document\BeerGlass
             places:

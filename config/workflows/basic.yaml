@@ -4,9 +4,7 @@ framework:
         beerglass_basic:
             type: state_machine
             marking_store:
-                type: single_state
-                arguments:
-                    - state
+                property: state
             supports:
                 - App\Document\BeerGlass
             places:
