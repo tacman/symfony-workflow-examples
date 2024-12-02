@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Document\BeerGlass;
+use App\Entity\BeerGlass;
+use App\Repository\BeerGlassRepository;
 use Doctrine\ODM\MongoDB\DocumentManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,26 +15,17 @@ use Symfony\Component\Workflow\Registry;
 
 class WorkflowController extends AbstractController
 {
-    /**
-     * @var Registry
-     */
-    protected $registry;
-
-    /**
-     * @var DocumentManager
-     */
-    protected $dm;
 
     /**
      * WorkflowController constructor.
      *
-     * @param Registry $registry
-     * @param DocumentManager $dm
      */
-    public function __construct(Registry $registry, DocumentManager $dm)
+    public function __construct(
+        private EntityManagerInterface $dm,
+        private Registry $registry,
+        private BeerGlassRepository $beerGlassRepository,
+    )
     {
-        $this->registry = $registry;
-        $this->dm = $dm;
     }
 
     /**

@@ -63,4 +63,27 @@ class BeerGlass
 
         return $this;
     }
+
+    public function fill(int $fill = 100): void
+    {
+        if ($this->amount + $fill > 100) {
+            $this->amount = 100;
+        } else {
+            $this->amount += $fill;
+        }
+    }
+
+    public function swig(int $amount = 10): void
+    {
+        if ($this->amount - $amount <= 0) {
+            $this->amount = 0;
+        } else {
+            $this->amount -= $amount;
+        }
+    }
+
+    public function empty(): void
+    {
+        $this->amount = 0;
+    }
 }

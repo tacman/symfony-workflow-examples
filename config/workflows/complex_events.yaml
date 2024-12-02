@@ -5,7 +5,7 @@ framework:
             marking_store:
                 property: complextState
             supports:
-                - App\Document\BeerGlass
+                - App\Entity\BeerGlass
             places:
                 - clean
                 - empty
